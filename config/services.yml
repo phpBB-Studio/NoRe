@@ -1,0 +1,19 @@
+services:
+    phpbbstudio.nore.listener:
+        class: phpbbstudio\nore\event\main_listener
+        tags:
+            - { name: event.listener }
+
+    phpbbstudio.nore.command.reparse_nore:
+        class: phpbbstudio\nore\console\command\nore
+        arguments:
+            - '@dbal.conn'
+            - '@language'
+            - '@log'
+            - '@user'
+            - '%tables.forums%'
+            - '%tables.topics%'
+            - '%tables.posts%'
+            - '%tables.privmsgs%'
+        tags:
+            - { name: console.command }
