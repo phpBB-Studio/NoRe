@@ -23,6 +23,7 @@ if (empty($lang) || !is_array($lang))
  * ’ » “ ” …
  */
 $lang = array_merge($lang, [
-	'ERROR_PHPBB_VERSION'	=> 'Minimum phpBB version required is %1$s but less than %2$s',
-	'ERROR_PHP_VERSION'		=> 'Minimum PHP version required is %1$s',
+	'ERROR_PHPBB_VERSION'		=> 'Minimum phpBB version required is 3.2.9 but less than 4.0.0@dev',
+	'ERROR_PHP_VERSION'			=> 'Minimum PHP version required is 5.4.7',
+	'ERROR_PHP_VERSION_OBERON'	=> 'Minimum PHP version required is 7.1.3',
 ]);

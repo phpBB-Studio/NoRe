@@ -1,27 +1,32 @@
 {
-    "name": "phpbbstudio/nore",
-    "type": "phpbb-extension",
-    "description": "The extension removes the prefix - Re : - from posts and PMs in the Reply or Quote process.",
-    "homepage": "https://www.phpbbstudio.com",
-    "version": "1.0.1-beta",
-    "time": "2019-08-19",
-    "license": "GPL-2.0-only",
-    "authors": [
-        {
-            "name": "phpBB Studio",
-            "email": "info@phpbbstudio.com",
-            "homepage": "https://www.phpbbstudio.com",
-            "role": "Lead Developer"
-        }
-    ],
-    "require": {
-        "php": ">=5.4.7",
-        "composer/installers": "~1.0"
-    },
-    "extra": {
-        "display-name": "phpBB Studio - No Re:",
-        "soft-require": {
-            "phpbb/phpbb": ">=3.2.8-rc1,<4.0.0@dev"
-        }
-    }
+	"name": "phpbbstudio/nore",
+	"type": "phpbb-extension",
+	"description": "The extension removes the prefix - Re : - from posts and PMs in the Reply or Quote process.",
+	"homepage": "https://www.phpbbstudio.com",
+	"version": "1.1.0",
+	"time": "2020-01-07",
+	"license": "GPL-2.0-only",
+	"authors": [
+		{
+			"name": "phpBB Studio",
+			"email": "info@phpbbstudio.com",
+			"homepage": "https://www.phpbbstudio.com",
+			"role": "Lead Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.4.7",
+		"composer/installers": "~1.0"
+	},
+	"extra": {
+		"display-name": "phpBB Studio - No Re:",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.2.9-rc1,<4.0.0@dev"
+		},
+		"version-check": {
+			"host": "3d-i.github.io",
+			"directory": "/site/vchecks",
+			"filename": "nore.json"
+		}
+	}
 }

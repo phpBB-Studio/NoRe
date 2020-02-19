@@ -124,13 +124,13 @@ class nore extends \phpbb\console\command\command
 	 */
 	protected function interact(InputInterface $input, OutputInterface $output)
 	{
-		// Validate the user input
+		/* Validate the user input */
 		$input->validate();
 
-		// Request the "mode" argument
+		/* Request the "mode" argument */
 		$mode = $input->getArgument('mode');
 
-		// Make sure it is a valid mode
+		/* Make sure it is a valid mode */
 		if (!in_array($mode, array_keys($this->modes)))
 		{
 			throw new RuntimeException($this->language->lang('CLI_NORE_INVALID', 'mode', implode('|', array_keys($this->modes))));
@@ -146,7 +146,7 @@ class nore extends \phpbb\console\command\command
 
 		if (!$helper->ask($input, $output, $question))
 		{
-			// Confirm box was answered with "N"
+			/* Confirm box was answered with "N" */
 			$input->setArgument('mode', false);
 		}
 	}
@@ -161,13 +161,13 @@ class nore extends \phpbb\console\command\command
 	 */
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		// Request the "mode" argument
+		/* Request the "mode" argument */
 		$mode = $input->getArgument('mode');
 
-		// Make sure it's not false (confirm box answered with "N")
+		/* Make sure it's not false (confirm box answered with "N") */
 		if ($mode)
 		{
-			// Set up base values
+			/* Set up base values */
 			$column	= $this->modes[$mode];
 			$table	= $this->{$mode . '_table'};
 			$where	= $this->get_sql_where($column);

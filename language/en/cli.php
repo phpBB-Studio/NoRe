@@ -19,6 +19,8 @@ if (empty($lang) || !is_array($lang))
 }
 
 /*
+ * Translators: The current tabulation should be retained!
+ *
  * Some characters you may want to copy&paste:
  * ’ » “ ” …
  */

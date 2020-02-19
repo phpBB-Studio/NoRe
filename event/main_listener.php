@@ -30,15 +30,16 @@ class main_listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return [
-			'core.pm_modify_message_subject'	=> 'nore_pm_modify_message_subject',
-			'core.posting_modify_post_subject'	=> 'nore_posting_modify_post_subject',
+			'core.pm_modify_message_subject'					=> 'nore_pm_modify_message_subject',
+			'core.posting_modify_post_subject'					=> 'nore_posting_modify_post_subject',
+			'core.viewtopic_modify_quick_reply_template_vars'	=> 'nore_qr_modify_topic_title',
 		];
 	}
 
 	/**
-	 *
 	 * @event core.pm_modify_message_subject
-	 * @param  \phpbb\event\data	$event		The event object
+	 *
+	 * @param \phpbb\event\data		$event		The event object
 	 * @return void
 	 * @access public
 	 */
@@ -48,14 +49,26 @@ class main_listener implements EventSubscriberInterface
 	}
 
 	/**
-	 *
 	 * @event core.posting_modify_post_subject
-	 * @param  \phpbb\event\data	$event		The event object
+	 *
+	 * @param \phpbb\event\data		$event		The event object
 	 * @return void
 	 * @access public
 	 */
 	public function nore_posting_modify_post_subject($event)
 	{
 		$event['post_subject'] = preg_replace('/^Re: /', '', $event['post_subject']);
+	}
+
+	/**
+	 * @event core.viewtopic_modify_quick_reply_template_vars
+	 *
+	 * @param \phpbb\event\data		$event		The event object
+	 * @return void
+	 * @access public
+	 */
+	public function nore_qr_modify_topic_title($event)
+	{
+		$event->update_subarray('tpl_ary', 'SUBJECT', censor_text($event['topic_data']['topic_title']));
 	}
 }
